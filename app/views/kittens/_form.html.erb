@@ -1,0 +1,22 @@
+<%= form_for @kitten do |f| %>
+  <% if @kitten.errors.any? %>
+    <ul>
+      <% @kitten.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :age %>
+  <%= f.number_field :age, step: 0.5 %>
+
+  <%= f.label :cuteness %>
+  <%= f.range_field :cuteness, in: 0..5 %>
+
+  <%= f.label :softness %>
+  <%= f.range_field :softness, in: 0..5 %>
+
+  <%= f.submit %>
+<% end %>
